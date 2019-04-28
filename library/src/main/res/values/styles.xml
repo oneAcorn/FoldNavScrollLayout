@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HomeTabTextAppearanceStyle" parent="TextAppearance.AppCompat.Button">
+        <!--去掉tablayout标题自动大写-->
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

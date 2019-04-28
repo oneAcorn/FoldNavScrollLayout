@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<com.acorn.library.FoldNavScrollLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,13 +7,103 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <RelativeLayout
+        android:id="@id/fold_nav_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#ffffff">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/home_title_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:drawableRight="@mipmap/home_title_address_light_icon"
+            android:drawablePadding="6dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingRight="10dp"
+            android:text="北京"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
+
+        <RelativeLayout
+            android:id="@+id/home_title_search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/home_feedback_layout"
+            android:layout_toRightOf="@+id/home_title_address_tv"
+            android:background="@drawable/home_title_search_bg"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/home_title_scan_iv">
+
+                <TextView
+                    android:id="@+id/home_title_search_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="9dp"
+                    android:drawableLeft="@mipmap/home_title_search_light_icon"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="搜索商品"
+                    android:textColor="#7c7c7c"
+                    android:textSize="12sp"/>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/home_title_scan_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:src="@mipmap/home_title_scan_light"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/home_feedback_layout"
+            android:layout_width="58dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/home_title_feedback_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="5dp"
+                android:scaleType="center"
+                android:src="@mipmap/home_title_feedback_light"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@id/fold_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:background="#ffffff"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#2395B8"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="#2395B8"
+        app:tabTextAppearance="@style/HomeTabTextAppearanceStyle"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@id/fold_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        />
+</com.acorn.library.FoldNavScrollLayout>

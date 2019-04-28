@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fold_nav_layout" type="id"/>
+    <item name="fold_tab_layout" type="id"/>
+    <item name="fold_content_layout" type="id"/>
+</resources>

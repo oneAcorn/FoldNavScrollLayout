@@ -56,7 +56,7 @@ dependencies {
         />
 </com.acorn.library.FoldNavScrollLayout>
 ```
-###请注意,FoldNavScrollLayout内第一层childView需要至少有3个如下id的View存在
+### 请注意,FoldNavScrollLayout内第一层childView需要至少有3个如下id的View存在
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>

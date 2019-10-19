@@ -20,7 +20,7 @@ allprojects {
 
 ```gradle
 dependencies {
-	        implementation 'com.github.oneAcorn:FoldNavScrollLayout:1.0'
+	        implementation 'com.github.oneAcorn:FoldNavScrollLayout:1.1'
 	}
 ```
 
@@ -71,3 +71,34 @@ fold_tab_layout 位置固定的View,不一定是TabLayout
 fold_content_layout 可竖向滑动的View
 
 ##### 2.完成,就当它是个LinearLayout,该怎么用就怎么用
+
+### 版本更新
+ ##### 1.1
+  增加折叠与展开的监听,使用方法:
+  ```java
+  foldNavScrollLayout.setOnFoldNavListener(new IFoldNavListener() {
+            @Override
+            public void onNavFoldBegin() {
+                Log.i("navfold","onNavFoldBegin");
+                Toast.makeText(MainActivity.this,"onNavFoldBegin",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNavFoldFinish() {
+                Log.i("navfold","onNavFoldFinish");
+                Toast.makeText(MainActivity.this,"onNavFoldFinish",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNavExpandBegin() {
+                Log.i("navfold","onNavExpandBegin");
+                Toast.makeText(MainActivity.this,"onNavExpandBegin",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNavExpandFinish() {
+                Log.i("navfold","onNavExpandFinish");
+                Toast.makeText(MainActivity.this,"onNavExpandFinish",Toast.LENGTH_SHORT).show();
+            }
+        });
+  ```

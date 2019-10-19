@@ -26,7 +26,7 @@ public class FoldNavScrollLayout extends LinearLayout implements NestedScrolling
     private boolean lastDirectionIsDown; //上次的方向,;
     private boolean isAniming;
     private boolean isExpand = true;
-
+    private IFoldNavListener mListener;
 
     public FoldNavScrollLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -131,6 +131,13 @@ public class FoldNavScrollLayout extends LinearLayout implements NestedScrolling
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     isAniming = false;
+                    if (null != mListener) {
+                        if (isExpand) {
+                            mListener.onNavExpandFinish();
+                        } else {
+                            mListener.onNavFoldFinish();
+                        }
+                    }
                 }
 
                 @Override
@@ -158,10 +165,21 @@ public class FoldNavScrollLayout extends LinearLayout implements NestedScrolling
         } else {
             navAnim.setIntValues(0, navHeight);
         }
+        if (null != mListener) {
+            if (isExpand) {
+                mListener.onNavExpandBegin();
+            } else {
+                mListener.onNavFoldBegin();
+            }
+        }
         navAnim.start();
     }
 
     public boolean isExpand() {
         return isExpand;
+    }
+
+    public void setOnFoldNavListener(IFoldNavListener listener) {
+        this.mListener = listener;
     }
 }
